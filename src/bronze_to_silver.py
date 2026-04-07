@@ -75,7 +75,7 @@ tip_silver = (
 # tip.printSchema()
 # tip.show()
 
-tip_silver.write.mode("overwrite").parquet("../data/siver/tip")
+tip_silver.write.mode("overwrite").parquet("../data/silver/tip")
 
 user = spark.read.parquet("../data/bronze/user")
 
@@ -89,6 +89,7 @@ user_silver = (
     )
     .withColumn("elite_years_count", size(col("elite_list")))
 
-# )
+ )
+user_silver.write.mode("overwrite").parquet("../data/silver/user")
 # user.printSchema()
 # user.show()
